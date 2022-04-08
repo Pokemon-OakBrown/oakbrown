@@ -4,71 +4,9 @@
 
 // SPOILERS AHEAD!
 
-// This file has all the custom Pokédex text. You should probably turn back.
+// This file has all the custom Pokédex text.
 
-// Seriously, it's a lot more fun to discover these in-game.
-
-// I wrote all of these custom texts so that you would be rewarded for actually filling your dex.
-
-// How many other hacks do you think bothered? What better opportunity will
-
-// you get to have a good reason to actually catch em all?
-
-// Especially since I made dex completion one of the main draws of the game?
-
-//
-
-//
-
-//
-
-// Look, if not saying it's a bad thing you want to read all the dex entries at once.
-
-// I'm just saying that once you do, that's it. You're not gonna want to catch anything in the game.
-
-// It just won't be very fulfilling, that's all.
-
-// I guess in the end it's up to you.
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
+// You should probably turn back. It's a lot more fun to find these in-game as a reward for catching mons.
 
 //
 
@@ -105,6 +43,8 @@
 // Have fun.
 
 //
+
+// (Note for devs: max line size is at col 47, not counting the \n)
 
 const u8 gTimNotesDummy[] = _(
     "I don't know anything about this Pokémon.");
@@ -413,55 +353,107 @@ const u8 gTimNotesNinetales[] = _(
 );
 
 const u8 gTimNotesJigglypuff[] = _(
-    ""
+    "This Pokémon is thought to have been the\n"
+    "inspiration for modern balloons, as it is\n"
+    "able to swell itself to almost twice its\n"
+    "size. Its singing voice also has a potent\n"
+    "sleeping effect on people and Pokémon."
 );
 
 const u8 gTimNotesWigglytuff[] = _(
-    ""
+    "Wigglytuff is a magician's best friend,\n"
+    "a common act including its inflation to\n"
+    "20 times its normal size, and bouncing\n"
+    "around the stage. It also sees occasional\n"
+    "use in Pokécenters and medical hospitals."
 );
 
 const u8 gTimNotesZubat[] = _(
-    ""
+    "Ubiquitous in the caves of almost every\n"
+    "region, Zubat have massive populations in\n"
+    "deep caverns, then emerge in swarms at\n"
+    "night to feed on insects. It lacks eyes\n"
+    "and relies on echolocation to navigate."
 );
 
 const u8 gTimNotesGolbat[] = _(
-    ""
+    "Often nicknamed the Vampire Bat, this\n"
+    "Pokémon has hollow fangs used for sucking\n"
+    "blood from its prey. It drinks so much,\n"
+    "sometimes it can be left immobile from\n"
+    "the amount of blood consumed."
 );
 
 const u8 gTimNotesOddish[] = _(
-    ""
+    "A plant Pokémon never content to stay in\n"
+    "one place, it constantly spreads pollen\n"
+    "wherever it happens to wander. While not\n"
+    "a capable fighter, it can defend itself\n"
+    "by poisoning or paralyzing a predator."
 );
 
 const u8 gTimNotesGloom[] = _(
-    ""
+    "While Oddish is weak and prone to injury,\n"
+    "Gloom emits a foul smell to ward off\n"
+    "predators. However, the scent attracts\n"
+    "insect Pokémon, which Gloom lures in with\n"
+    "nectar oozing from its mouth."
 );
 
 const u8 gTimNotesVileplume[] = _(
-    ""
+    "Vileplume pollen is extremely toxic to\n"
+    "other Pokémon, but only midly allergenic\n"
+    "to humans. If you intend to keep one on\n"
+    "your team, you should interact with it\n"
+    "separately from your other teammates."
 );
 
 const u8 gTimNotesParas[] = _(
-    ""
+    "The mushrooms growing on Paras' back are\n"
+    "connected to its brain, seemingly having\n"
+    "an influence on its actions. Paras that\n"
+    "had their mushrooms removed at birth show\n"
+    "greater intellegence and personality."
 );
 
 const u8 gTimNotesParasect[] = _(
-    ""
+    "Scientists debate to this day whether\n"
+    "Parasect is actually alive. The mushroom\n"
+    "exerts full control over its host, and if\n"
+    "the mushroom is removed, Parasect will\n"
+    "stop moving."
 );
 
 const u8 gTimNotesVenonat[] = _(
-    ""
+    "Its eyes act like an infared radar to\n"
+    "catch prey. Its fur also secrets a\n"
+    "liquid, poisonous substance that has been\n"
+    "used in various pest control products\n"
+    "such as Rattata poison."
 );
 
 const u8 gTimNotesVenomoth[] = _(
-    ""
+    "Venomoth secretes two distinct toxins in\n"
+    "its flaky scales. The darker colored ones\n"
+    "are poisonous, while the lighter colored\n"
+    "ones induce paralysis. These scales are\n"
+    "distributed by its flapping wings."
 );
 
 const u8 gTimNotesDiglett[] = _(
-    ""
+    "Rumors circulating that no one has ever\n"
+    "seen the underside of a Diglett are\n"
+    "patently false. Diglett are simply\n"
+    "reluctant to leave the ground. It has two\n"
+    "stubby feet and a mole-like body."
 );
 
 const u8 gTimNotesDugtrio[] = _(
-    ""
+    "When three battle-experienced Diglett\n"
+    "meet, they have a chance to evolve into\n"
+    "Dugtrio. Not unlike Dodrio, the three\n"
+    "heads think independently and bicker\n"
+    "amongst themselves occasionally."
 );
 
 const u8 gTimNotesMeowth[] = _(
