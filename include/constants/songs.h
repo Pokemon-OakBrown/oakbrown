@@ -352,6 +352,7 @@
 #define MUS_TRAINER_TOWER         344 // MUS_RG_T_TOWER
 #define MUS_SLOW_PALLET           345 // MUS_RG_SLOWMASARA
 #define MUS_TEACHY_TV_MENU        346 // MUS_RG_TVNOIZE
+// OakBrown Music
 #define MUS_TIM                   347
 #define MUS_LOOKER                348 // PL_SEQ_PL_HANDSOME
 #define MUS_VS_WILD_JOHTO         349 // HG_SEQ_GS_VS_NORAPOKE
@@ -366,5 +367,6 @@
 #define MUS_TROUBLE               358 // BW_SEQ_BGM_E_TROUBLE
 #define MUS_DUTY                  359 // BW_SEQ_BGM_N_CASTLE_BRIDGE
 #define MUS_LOSTLORN              360 // BW_SEQ_BGM_D_06
+#define MUS_LAVENDER_HGSS         361 // HG_SEQ_GS_T_CHION
 
 #endif  // GUARD_CONSTANTS_SONGS_H

@@ -9627,7 +9627,7 @@ voicegroup229:: @ HGSS main
 	voice_keysplit voicegroup245, KeySplitTable40    @ jazz organ
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_keysplit voicegroup247, KeySplitTable41    @ nylon guitar
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_keysplit voicegroup248, KeySplitTable41    @ martin guitar
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_keysplit voicegroup251, KeySplitTable41    @ clean guitar
@@ -9639,7 +9639,7 @@ voicegroup229:: @ HGSS main
 	voice_keysplit voicegroup256, KeySplitTable46    @ violin	
 	voice_keysplit voicegroup257, KeySplitTable47    @ cello	
 	voice_keysplit voicegroup258, KeySplitTable48    @ pizzicato
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_keysplit voicegroup259, KeySplitTable40    @ harp
 	voice_keysplit voicegroup260, KeySplitTable40    @ timpani
 	voice_keysplit voicegroup261, KeySplitTable39    @ trumpets
 	voice_keysplit voicegroup262, KeySplitTable47    @ trombones
@@ -9858,6 +9858,13 @@ voicegroup247:: @
 	voice_directsound 60, 0, DirectSoundWaveData_hg_076nylone4, 255, 251, 6, 205	@
 
 	.align 2
+voicegroup248:: @ 
+	voice_directsound 60, 0, DirectSoundWaveData_hg_117marting2, 255, 251, 14, 192
+	voice_directsound 60, 0, DirectSoundWaveData_hg_118marting3, 255, 251, 14, 192
+	voice_directsound 60, 0, DirectSoundWaveData_hg_116martine4, 255, 251, 14, 192
+	voice_directsound 60, 0, DirectSoundWaveData_hg_115martinc5, 255, 251, 14, 192
+
+	.align 2
 voicegroup251:: @ 
 	voice_directsound 60, 0, DirectSoundWaveData_hg_028cleane4, 255, 246, 0, 171	@
 	voice_directsound 60, 0, DirectSoundWaveData_hg_028cleane4, 255, 246, 0, 171	@
@@ -9905,6 +9912,12 @@ voicegroup258:: @
 	voice_directsound 60, 0, DirectSoundWaveData_hg_099pizzc4, 255, 242, 25, 205	
 	voice_directsound 60, 0, DirectSoundWaveData_hg_098pizza4, 255, 242, 25, 205	
 	voice_directsound 60, 0, DirectSoundWaveData_hg_101pizzf5, 255, 239, 25, 205	
+
+	.align 2
+voicegroup259:: @ 
+	voice_directsound 60, 0, DirectSoundWaveData_hg_058harpc3, 255, 248, 0, 205
+	voice_directsound 60, 0, DirectSoundWaveData_hg_059harpc4, 255, 246, 0, 205
+	voice_directsound 60, 0, DirectSoundWaveData_hg_060harpc5, 255, 242, 0, 205
 
 	.align 2
 voicegroup260:: @ 

@@ -3325,6 +3325,22 @@ DirectSoundWaveData_hg_101pizzf5::
 	.align 2
 DirectSoundWaveData_hg_102pizzg2::
 	.incbin "sound/direct_sound_samples/hg_102pizzg2.bin" @ used in bw
+	
+	.align 2
+DirectSoundWaveData_hg_115martinc5::
+	.incbin "sound/direct_sound_samples/hg_115martinc5.bin"
+
+	.align 2
+DirectSoundWaveData_hg_116martine4::
+	.incbin "sound/direct_sound_samples/hg_116martine4.bin" @ used in bw
+
+	.align 2
+DirectSoundWaveData_hg_117marting2::
+	.incbin "sound/direct_sound_samples/hg_117marting2.bin" @ used in bw
+
+	.align 2
+DirectSoundWaveData_hg_118marting3::
+	.incbin "sound/direct_sound_samples/hg_118marting3.bin" @ used in bw
 
 	.align 2
 DirectSoundWaveData_hg_119str1a4::

@@ -824,13 +824,14 @@ MUS_VS_TRAINER_JOHTO      = 5E 01
 MUS_UNION_CAVE            = 5F 01
 MUS_ALPH_RUINS            = 60 01
 MUS_AZALEA                = 61 01
-MUS_ROUTE34              = 62 01
+MUS_ROUTE34               = 62 01
 MUS_GOLDENROD             = 63 01
 MUS_ICE_PATH              = 64 01
 MUS_EVIL                  = 65 01
 MUS_TROUBLE               = 66 01
 MUS_DUTY                  = 67 01
 MUS_LOSTLORN              = 68 01
+MUS_LAVENDER_HGSS         = 69 01
 
 A_BUTTON        = F8 00
 B_BUTTON        = F8 01

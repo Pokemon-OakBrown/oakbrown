@@ -869,3 +869,6 @@ $(MID_SUBDIR)/mus_duty.s: %.s: %.mid
 
 $(MID_SUBDIR)/mus_lostlorn.s: %.s: %.mid
 	$(MID) $< $@ -E -R5 -G277 -V062
+
+$(MID_SUBDIR)/mus_lavender_hgss.s: %.s: %.mid
+	$(MID) $< $@ -E -R5 -G229 -V073

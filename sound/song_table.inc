@@ -360,6 +360,7 @@ gSongTable:: @ 84A32CC
 	song mus_trouble, 0, 0
 	song mus_duty, 0, 0
 	song mus_lostlorn, 0, 0
+	song mus_lavender_hgss, 0, 0
 
 dummy_song_header: @ 84A3DA4
 	.byte 0, 0, 0, 0
