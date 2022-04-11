@@ -51,6 +51,7 @@
 #include "constants/maps.h"
 #include "constants/region_map_sections.h"
 #include "constants/songs.h"
+#include "constants/vars.h"
 
 #define PLAYER_TRADING_STATE_IDLE 0x80
 #define PLAYER_TRADING_STATE_BUSY 0x81
@@ -986,12 +987,37 @@ void Overworld_SetWarpDestinationFromWarp(struct WarpData * warp)
 
 // Routines related to map music
 
+// Returns a special song number, or MUS_DUMMY if default music should be used.
+// Hardcode any special persistent map music here, and it will be considered the "default" map music in scripts.
+static u16 CheckConditionalLocationMusic(struct WarpData * warp)
+{
+    struct MapHeader const * header;
+
+    header = Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum);
+
+    // South Rijon Gate Looker Quest
+    if (VarGet(VAR_MAP_SCENE_MERSON_CITY) == 2)
+        return MUS_EVIL;
+    // Merson City, After Looker Quest
+    if (VarGet(VAR_MAP_SCENE_MERSON_CITY) == 3 && header->regionMapSectionId == MAPSEC_PEWTER_CITY && 
+        header->music == MUS_LAVENDER)
+        return MUS_LAVENDER_HGSS;
+    // Nothing meets conditions, return nothing
+    return MUS_DUMMY;
+}
+
+// Main Function to determine location music. Takes into account conditional location music.
 static u16 GetLocationMusic(struct WarpData * warp)
 {
+    u16 conditionalMusic;
+
+    conditionalMusic = CheckConditionalLocationMusic(warp);
+    if (conditionalMusic != MUS_DUMMY)
+        return conditionalMusic;
     return Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music;
 }
 
-static u16 GetCurrLocationDefaultMusic(void)
+u16 GetCurrLocationDefaultMusic(void)
 {
     u16 music;
     music = GetLocationMusic(&gSaveBlock1Ptr->location);

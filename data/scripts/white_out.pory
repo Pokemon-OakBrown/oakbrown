@@ -2,15 +2,19 @@ script EventScript_AfterWhiteOutHeal {
 	lockforce
 	textcolor(1)
 	msgbox(Text_FirstShouldRestoreMonsHealth)
+	closemessage
 	call(EventScript_PkmnCenterNurse_TakeAndHealPkmn)
-	call_if_unset(FLAG_BADGE01_GET, EventScript_AfterWhiteOutHealMsgPreBrock)
-	call_if_set(FLAG_BADGE01_GET, EventScript_AfterWhiteOutHealMsg)
+	msgbox(Text_MonsHealed)
+	closemessage
 	applymovement(VAR_LAST_TALKED, Movement_Bow)
 	waitmovement(0)
-	if (var(VAR_MAP_SCENE_MERSON_CITY) == 2) {
-		fadenewbgm(MUS_EVIL)
-	} else {
+	// If the normal music is the Pokécenter, we play the net center theme after whiteout.
+	// Otherwise, we'll play the map's nor,al music.
+	special(QueryCurrLocationDefaultMusic)
+	if (var(VAR_RESULT) == MUS_POKE_CENTER) {
 		fadenewbgm(MUS_NET_CENTER)
+	} else {
+		fadedefaultbgm
 	}
 	applymovement(OBJ_EVENT_ID_PLAYER, Movement_FaceDown)
 	waitmovement(0)
@@ -19,14 +23,6 @@ script EventScript_AfterWhiteOutHeal {
 }
 
 raw `
-EventScript_AfterWhiteOutHealMsgPreBrock:: @ 81A8DC6
-	msgbox Text_MonsHealedShouldBuyPotions
-	return
-
-EventScript_AfterWhiteOutHealMsg:: @ 81A8DCF
-	msgbox Text_MonsHealed
-	return
-
 EventScript_AfterWhiteOutMomHeal:: @ 81A8DD8
 	lockforce
 	textcolor 1

@@ -1,10 +1,4 @@
-mapscripts MersonCity_PokeMart_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION {
-        if (var(VAR_MAP_SCENE_MERSON_CITY) == 2) {
-            savebgm(MUS_EVIL)
-        }
-    }
-}
+mapscripts MersonCity_PokeMart_MapScripts {}
 
 script MersonCity_PokeMart_Clerk {
     call(Mart_CheckAcrossCounter)

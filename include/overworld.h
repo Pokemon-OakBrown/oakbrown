@@ -82,6 +82,7 @@ void SetWarpDestinationToLastHealLocation(void);
 u8 IsMapTypeOutdoors(u8 mapType);
 void Overworld_ClearSavedMusic(void);
 bool32 Overworld_MusicCanOverrideMapMusic(u16 song);
+u16 GetCurrLocationDefaultMusic(void);
 
 void player_avatar_init_params_reset(void);
 

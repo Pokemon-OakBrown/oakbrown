@@ -16,7 +16,6 @@ const TEMPFLAG_POLICE_PRAISE = FLAG_TEMP_D
 mapscripts SouthRijonGate_Indoor_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         if (var(VAR_MAP_SCENE_MERSON_CITY) == 2) {
-            savebgm(MUS_EVIL)
             setflag(TEMPFLAG_HIDE_POLICE)
             setobjectxyperm(POLICEMAN_A_ID, 6, 1)
             setobjectxyperm(POLICEMAN_B_ID, 6, 1)
@@ -192,7 +191,6 @@ script SouthRijonGate_Indoor_BeatLeadBiker {
     removeobject(LOOKER_ID)
     playse(SE_EXIT)
     setvar(VAR_MAP_SCENE_MERSON_CITY, 3)
-    clearflag(FLAG_SYS_DONT_TRANSITION_MUSIC)
     savebgm(MUS_PEWTER)
     setflag(TEMPFLAG_POLICE_PRAISE)
     fadedefaultbgm

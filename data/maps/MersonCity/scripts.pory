@@ -28,7 +28,6 @@ mapscripts MersonCity_MapScripts {
             setflag(TEMPFLAG_HIDE_BADTRAINER)
             setflag(TEMPFLAG_HIDE_CENTERGUY)
             setflag(TEMPFLAG_HIDE_SCAREDWOMAN)
-            savebgm(MUS_EVIL)
         } elif (var(VAR_MAP_SCENE_MERSON_CITY) == 3) {
             // Post Sidequest
             setflag(TEMPFLAG_HIDE_LOOKER)
@@ -246,9 +245,7 @@ script MersonCity_MeetLooker {
         "I'm sorry to put you in this situation, but there's no time to find anyone else!\p"
         "Please, head to the South Rijon Gate and put a stop to this madness!\p"
         "I'll be right behind you, as soon as I call for backup!"))
-    setflag(FLAG_SYS_DONT_TRANSITION_MUSIC)
-    fadenewbgm(MUS_EVIL)
-    savebgm(MUS_EVIL)
+    fadedefaultbgm
     releaseforce
 }
 

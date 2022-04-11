@@ -8,7 +8,6 @@ mapscripts SouthRijonGate_MapScripts {
         if (var(VAR_MAP_SCENE_MERSON_CITY) == 0) {
             setflag(TEMPFLAG_HIDE_TRAINERS)
         } elif (var(VAR_MAP_SCENE_MERSON_CITY) == 2) {
-            savebgm(MUS_EVIL)
             setobjectxyperm(CUEBALL_ID, 23, 27)
         } else {
             setflag(TEMPFLAG_HIDE_TRAINERS)

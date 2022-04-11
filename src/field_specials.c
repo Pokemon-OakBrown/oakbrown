@@ -2186,3 +2186,8 @@ void SetMuraCharmanderGender(void)
     else
         FlagClear(FLAG_MURAS_CHARMANDER_MALE);
 }
+
+void QueryCurrLocationDefaultMusic(void)
+{
+    gSpecialVar_Result = GetCurrLocationDefaultMusic();
+}
