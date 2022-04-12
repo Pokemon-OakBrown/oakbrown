@@ -20,9 +20,7 @@ script SeashoreCity_YoungBoy {
             msgbox(format("Cool! I'm going to be one soon as\nwell!\pIt's very hard, but rewarding!\p"
             "Well, good luck in Gravel Town! Hope to see you again soon!"))
         } else {
-            msgbox(format("Hahah!\nYou're such a jokester, {PLAYER}!\p"
-            "You've been talking about getting a Pokémon nonstop since you moved in!\p"
-            "I don't even know why I asked in the first place!"))
+            msgbox(format("Huh?! But you've been talking about getting a Pokémon nonstop since you moved in!"))
         }
     } elif (!flag(FLAG_REACHED_MERSON_CITY)) {
         msgbox(format("Hey, you got a Pokémon, didn't you?\nWhich one did you pick?"))
@@ -37,7 +35,7 @@ script SeashoreCity_Lass {
     faceplayer
     if (!flag(FLAG_REACHED_MERSON_CITY)) {
         msgbox("Are those new shoes?\pTry running with them by holding {B_BUTTON}!")
-    } elif (flag(FLAG_BADGE08_GET)) {
+    } elif (flag(FLAG_SYS_GAME_CLEAR)) {
         msgbox(format("You've travelled the entire region by now…\pAnd you're still wearing those old running shoes!"))
     } elif (flag(FLAG_GOT_BICYCLE)) {
         msgbox(format("Even though you have a Bicycle, you're still wearing those running shoes, huh?"))

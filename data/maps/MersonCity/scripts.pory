@@ -45,18 +45,31 @@ mapscripts MersonCity_MapScripts {
 script MersonCity_DumbGuy {
     lock
     faceplayer
-    msgbox(format("Karpman owns the Merson City Gym, but he's really tough!\p"
-        "I just can't seem to beat that Vaporeon of his…\p"
-        "I mean, first I tried using my Slugma against it, but that didn't work…\p"
-        "So I went up to Merson Cave and caught a Geodude! But get this!\pThat didn't work either!\p"
-        "So I spent my savings on a rare, powerful Pokémon, a Quilava from Johto!\p"
-        "But Karpman just beat me again!\nArgh! What am I doing wrong?!"))
+    if (var(VAR_MAP_SCENE_MERSON_CITY) == 3) {
+        msgbox(format("It took me weeks of training, but I finally got my gym badge from Karpman!\p"
+            "Individually, my three Pokémon couldn't beat him, but working together, they pulled it off!"))
+    } else {
+        msgbox(format("Karpman owns the Merson City Gym, but he's really tough!\p"
+            "I just can't seem to beat that Vaporeon of his…\p"
+            "I mean, first I tried using my Slugma against it, but that didn't work…\p"
+            "So I went up to Merson Cave and caught a Geodude! But get this!\pThat didn't work either!\p"
+            "So I spent my savings on a rare, powerful Pokémon, a Quilava from Johto!\p"
+            "But Karpman just beat me again!\nArgh! What am I doing wrong?!"))
+    }
     release
 }
 
 script MersonCity_BadTrainer {
     lock
     faceplayer
+    if (var(VAR_MAP_SCENE_MERSON_CITY) == 3) {
+        msgbox(format("I just got some good news.\p"
+            "If I take a class on Pokémon care, they'll give me my Trainer Card back.\p"
+            "It'll be a long road, but maybe one day I'll be able to see my Pokémon again."))
+        release
+        end
+    }
+
     msgbox(format("Do you consider yourself a good trainer?"), MSGBOX_YESNO)
     if (var(VAR_RESULT)) {
         msgbox(format("That's good. I'm not really a good trainer myself…"))
@@ -181,7 +194,7 @@ script MersonCity_MeetLooker {
     applymovement(CAMERA_ID, Movement_WalkLeft)
     waitmovement(0)
     textcolor(0)
-    msgbox(format("Concentrate, ma'am. How many did you see? What did they look like?"))
+    msgbox(format("Concentrate, miss. How many did you see? What did they look like?"))
     closemessage
     applymovement(CAMERA_ID, Movement_WalkRight)
     waitmovement(0)
@@ -198,7 +211,7 @@ script MersonCity_MeetLooker {
     applymovement(CAMERA_ID, Movement_WalkRight)
     waitmovement(0)
     textcolor(1)
-    msgbox(format("Oh, please hurry! I don't know what they intend to do!\p"
+    msgbox(format("Please hurry! I don't know what they intend to do!\p"
         "Just thinking about it makes me…!\nOh, it makes me so… … …!"))
     closemessage
     delay(24)
@@ -235,16 +248,16 @@ script MersonCity_MeetLooker {
             "My name is… Ah, no, my codename will suffice. My codename is Looker!\p"
             "I've been investigating disturbances in the area, in case something were to happen!"))
     }
-    msgbox(format("I'm sure this must be very overwhelming to a civilian such as yourself!\p"
+    msgbox(format("I'm sure this must be very overwhelming to a civilian such as yourself.\p"
         "But fate is no respecter of persons!\p"
-        "I'm afraid we'll be requiring your assistance in this emergency situation!\p"
-        "South of Merson City is the gate to South Rijon!\p"
+        "I'm afraid we'll be requiring your assistance in this emergency situation.\p"
+        "South of Merson City is the gate to South Rijon.\p"
         "They handle administrative affairs such as Trainer Registration.\p"
         "But it seems a group of thugs from South Rijon are holding its workers hostage!\p"
         "Time is of the utmost importance, lest they do something even more reckless!\p"
-        "I'm sorry to put you in this situation, but there's no time to find anyone else!\p"
+        "I'm sorry to put you in this situation, but there's no time to find anyone else.\p"
         "Please, head to the South Rijon Gate and put a stop to this madness!\p"
-        "I'll be right behind you, as soon as I call for backup!"))
+        "I'll be right behind you, as soon as I call for backup."))
     fadedefaultbgm
     releaseforce
 }
@@ -314,7 +327,6 @@ script MersonCity_LookerStopLeaveNorth {
 
 script MersonCity_LookerStopEnterGym {
     lockall
-    applymovement(PLAYER_ID, Movement_FaceUp)
     applymovement(LOOKER_ID, Movement_FaceLeft)
     textcolor(0)
     msgbox(MersonCity_LookerWhereGoing, MSGBOX_NPC)

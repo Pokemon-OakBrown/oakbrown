@@ -66,10 +66,7 @@ script MersonCity_Gym_Karpman {
 }
 
 text MersonCity_Gym_KarpmanNextGym {
-    format("That was an epic battle!\p"
-    "I just wish I could have fought you with my real Pokémon!\p"
-    "Hey, maybe sometime we can have a rematch, when you get stronger!\p"
-    "Want my advice?\nYou should challenge Lily next.\p"
+    format("Want my advice?\nYou should challenge Lily next.\p"
     "She's an ice-type gym leader who lives in Owsauri City.\p"
     "The underground path on Route 55 will take you to Hayward City.\p"
     "You'll need to head north from there to get to where you're going.")
@@ -98,6 +95,8 @@ script MersonCity_Gym_KarpmanPostBattle {
     waitbuttonpress
     textcolor(0)
     msgbox(format("Karpman: TM94 contains Octazooka!\p"
-        "It's a water move that can lower the accuracy of your foe!"))
+        "It's a water move that can lower the accuracy of your foe.\p"
+        "That was an epic battle!\p"
+        "Hey, maybe sometime we can have a rematch, when you get stronger!"))
     msgbox(MersonCity_Gym_KarpmanNextGym, MSGBOX_AUTOCLOSE)
 }

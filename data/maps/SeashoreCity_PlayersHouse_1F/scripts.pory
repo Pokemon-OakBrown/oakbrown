@@ -1,7 +1,11 @@
-mapscripts SeashoreCity_PlayersHouse_1F_MapScripts {}
+mapscripts SeashoreCity_PlayersHouse_1F_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setrespawn(SPAWN_SEASHORE_CITY)
+    }
+}
 
 script SeashoreCity_PlayersHouse_1F_TV {
-    msgbox(format("There's a movie on TV called Naljo's Guardians.\p"
+    msgbox(format("There's a movie on TV called “Naljo's Guardians”.\p"
         "It appears to be based off of local mythology.\p"
         "… … … Better get going!"))
     closemessage
@@ -15,8 +19,7 @@ script SeashoreCity_PlayersHouse_1F_Mom {
         if (var(VAR_0x8003) == TIME_MORNING) {
             msgbox(format("Mom: Good morning, sweetie!\nToday's your big day!"))
         } else {
-            msgbox(format("Mom: {PLAYER}, today's your big day!\pI'm so proud of you.\p"
-                "You'll finally be able to follow in your father's footsteps."))
+            msgbox(format("Mom: {PLAYER}, today's your big day! I'm so proud of you."))
         }
         msgbox(format("You should start walking south to Gravel Town soon.\pTim will be expecting you."))
     } else {

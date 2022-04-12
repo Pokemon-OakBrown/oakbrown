@@ -11,22 +11,6 @@ script MersonCave_Outdoor_Bernard {
     release
 }
 
-script MersonCave_Outdoor_BernardReward {
-    msgbox(format("You deserve a little something for your troubles.\p"
-        "Hm, I don't have much, but how about this?"))
-    textcolor(2)
-    getitemname(1, ITEM_POTION)
-    playfanfare(MUS_OBTAIN_ITEM)
-    message(format("{PLAYER} recieved two Rare Candies!"))
-    waitmessage
-    waitfanfare
-    additem(ITEM_RARE_CANDY, 2)
-    textcolor(0)
-    msgbox("You youngsters like candy, right?")
-    release
-    end
-}
-
 script MersonCave_Outdoor_Hiker {
     lock
     faceplayer

@@ -46,8 +46,8 @@ script MersonCave_1F_BugCatcherFred {
 script MersonCave_1F_SuperNerdJonathan {
     trainerbattle_single(TRAINER_SUPER_NERD_JONATHAN,
         format("Oh? You're approaching me?\pWell, then.\nCome as close as you need to."),
-        "Weakling! Weakling!")
-    msgbox("The more carefully you scheme, the\nmore unexpected events come along.", MSGBOX_AUTOCLOSE)
+        "No! Humiliation levels at\nover 9000!")
+    msgbox(format("You know, Pokémon battles look a lot cooler on TV."), MSGBOX_AUTOCLOSE)
 }
 
 script MersonCave_1F_HikerBrian {

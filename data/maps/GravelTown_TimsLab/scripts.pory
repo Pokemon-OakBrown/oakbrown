@@ -47,25 +47,25 @@ script GravelTown_TimsLab_StartChooseStarterScene {
     fadedefaultbgm
     savebgm(MUS_OAK_LAB)
     delay(24)
-    msgbox(format("Mura: Finally, he's here!\pLet's hurry up, already!"))
+    msgbox(format("Mura: Finally, he's here!\pLet's get this over with, already!"))
     applymovement(MURA_ID, Movement_FaceUp)
     msgbox(format(
         "Tim: Mura, be patient. This is a momentous occasion, after all!\p"
         "Now then, are you both ready for your first Pokémon?\p"
         "I have three newly-hatched Pokémon here, courtesy of Professor Oak's laboratory.\p"
         "Like you two, these creatures are young and full of potential.\p"
-        "I hope you will grow and experience the world together, you and your Pokémon, through thick and thin.\p"
+        "I hope you will grow and experience the world together, you and your Pokémon.\p"
         "My grandfather wanted me to carry on the tradition of being a master trainer…\p"
         "But my life took a different turn.\nI'm passing his legacy to you two!"))
     applymovement(MURA_ID, Movement_FaceRight)
     msgbox(format("Mura: Man, {PLAYER}, is this guy a snoozefest or what?"))
     applymovement(MURA_ID, Movement_FaceUp)
     msgbox(format("Come on, old man! Let's get this moving!\p"
-        "I've waited too long for this day to listen to you ramble!\p"
-        "Tim: … … … … …\p"
+        "I've waited too long for today to waste it listening to you ramble!\p"
+        "Tim: … … … … …\nI see.\p"
         "Very well. {PLAYER}, go ahead and choose your Pokémon."))
     applymovement(MURA_ID, Movement_FaceRight)
-    msgbox(format("Mura: Hey, what's the big idea?\nHow come he gets to pick first?"))
+    msgbox(format("Mura: Hey, what's the big idea?\nI was here first!"))
     releaseforce
     setobjectmovementtype(MURA_ID, MOVEMENT_TYPE_LOOK_AROUND)
 }
@@ -118,7 +118,7 @@ script GravelTown_TimsLab_BookshelfTriggers {
         applymovement(TIM_ID, Movement_FaceDown)
         applymovement(PLAYER_ID, Movement_FaceUp)
         textcolor(0)
-        msgbox(format("Mura: Wait, {PLAYER}!\pLet's check out our Pokémon!"))
+        msgbox(format("Mura: Hey, {PLAYER}!\pLet's check out our Pokémon!"))
         closemessage
         switch(var(VAR_STARTER_MON)) {
             case STARTER_BULBASAUR:
@@ -159,7 +159,7 @@ script GravelTown_TimsLab_BookshelfTriggers {
 }
 
 text GravelTown_TimsLab_MuraYeahAmIGreat {
-    format("Mura: Yeah, am I great, or what?")
+    format("Mura: Heheh. No points for second place, {PLAYER}!")
 }
 
 text GravelTown_TimsLab_MuraNeedToTrain {
@@ -177,11 +177,11 @@ script GravelTown_TimsLab_Mura {
         faceplayer
         switch(var(VAR_STARTER_MON)) {
             case STARTER_BULBASAUR:
-                msgbox(format("Mura: I made the best choice!\nCharmander's the best!"))
+                msgbox(format("Mura: Charmander's the best!\n"))
             case STARTER_SQUIRTLE:
-                msgbox(format("Mura: My Pokémon has the type advantage, and that's what's important!"))
+                msgbox(format("Mura: Mine looks stronger than yours."))
             case STARTER_CHARMANDER:
-                msgbox(format("Mura: Hmph! You're just lucky you got to choose first!"))
+                msgbox(format("Mura: You're just lucky you got to choose first!"))
         }
         release
     }
@@ -195,7 +195,7 @@ script GravelTown_TimsLab_Tim {
     } elif (var(VAR_MAP_SCENE_GRAVEL_TOWN) == 1) {
         msgbox(format(
             "Tim: I remember when I was in your shoes, all those years ago…\p"
-            "Of course, things were a little different back then."))
+            "Of course, back then we would just chase Pidgey around and whatnot."))
     } elif (!flag(FLAG_SYS_POKEDEX_GET)) {
         if (flag(FLAG_GOT_TIMS_PIZZA)) {
             goto(GravelTown_TimsLab_PokedexScene)
@@ -209,7 +209,7 @@ script GravelTown_TimsLab_Tim {
     } elif (!flag(FLAG_REACHED_MERSON_CITY)) {
         msgbox(format("Tim: Pokémon are just waiting to be found, {PLAYER}!"))
     } else {
-        msgbox(format("Placeholder"))
+        msgbox(format("TODO POKEDEX RATING"))
     }
     release
 }
@@ -316,7 +316,7 @@ script GravelTown_TimsLab_RivalPicksStarter {
     textcolor(0)
     switch(var(VAR_STARTER_MON)) {
         case STARTER_BULBASAUR:
-            msgbox(format("Mura: Hah! You made the wrong choice!"))
+            msgbox(format("Mura: Hah! You picked wrong, sucker!"))
             closemessage
             applymovement(MURA_ID, Movement_MuraWalkToCharmander)
             waitmovement(MURA_ID)
@@ -331,7 +331,7 @@ script GravelTown_TimsLab_RivalPicksStarter {
             removeobject(BULBASAUR_ID)
             getspeciesname(0, SPECIES_BULBASAUR)
         case STARTER_CHARMANDER:
-            msgbox(format("Mura: Ulp! That was the one I was going to…!"))
+            msgbox(format("Mura: … … …! But that was the one I wanted!"))
             closemessage
             applymovement(MURA_ID, Movement_MuraWalkToSquirtle)
             waitmovement(MURA_ID)
@@ -424,7 +424,7 @@ movement Movement_PlayerLookMuraExitRight {
 // Pokédex Scene
 
 script GravelTown_TimsLab_Pokedex {
-    msgbox("What's this thing?\nBetter ask Tim first!", MSGBOX_AUTOCLOSE)
+    msgbox("What's this thing?\nBetter ask Tim!", MSGBOX_AUTOCLOSE)
 }
 
 script GravelTown_TimsLab_PokedexScene {
@@ -437,8 +437,8 @@ script GravelTown_TimsLab_PokedexScene {
     waitmessage
     waitfanfare
     textcolor(0)
-    msgbox(format("Oh, right! I had ordered pizza\nearlier.\p"
-        "But that's odd… I thought you quit that pizza delivery job last week…?\p"
+    msgbox(format("Right! I had ordered pizza earlier.\p"
+        "But that's odd… I thought you quit that pizza delivery job…?\p"
         "Ah, no matter.\nThank you for bringing it to me.\p"
         "Actually, now that I think about it,\nit's a good thing you came.\p"
         "You see, part of the agreement\nwith Professor Oak was that--"))
@@ -506,7 +506,7 @@ script GravelTown_TimsLab_PokedexScene {
     applymovement(TIM_ID, Movement_FaceDown)
     delay(16)
     msgbox(format("As you're probably aware, starter Pokémon are in short supply here.\p"
-        "Only through generous contributions from Professors Oak and Elm are we able to give any away at all."))
+        "Only through generous contributions from Professors Oak and Elm are we able to provide any at all."))
     closemessage
     applymovement(TIM_ID, Movement_WalkLeft)
     waitmovement(TIM_ID)
@@ -531,13 +531,13 @@ script GravelTown_TimsLab_PokedexScene {
     delay(16)
     msgbox(format("These two devices you see before you are Pokédexes.\p"
         "You are beginning to get the picture, no?\p"
-        "Mura: Geez, would you stop talking already? Get to the point!\p"
+        "Mura: Geez, would you get to the point, already?\p"
         "Tim: Very well.\nTo put it simply…\p"
         "You will be tasked to record as much data as possible using the Pokédex.\p"
-        "Please treat it with care, as it is rather expensive.\p"
+        "Please treat it with care, as we cannot replace it if damaged.\p"
         "You can check in with me occasionally, and I'll rate your progress.\p"
-        "If you do well, Professor Oak has given me a couple of… rewards, shall we say, for all your hard work.\p"
-        "Although catching Pokémon results in better data, just encountering them will suffice for now."))
+        "Professor Oak has provided a few… incentives, shall we say, to reward your hard work.\p"
+        "Catching Pokémon provides the most complete data, but even just encountering them on your journey is helpful."))
     closemessage
     delay(48)
     removeobject(POKEDEX_RIGHT_ID)
@@ -586,7 +586,7 @@ script GravelTown_TimsLab_PokedexScene {
             "You won't stand a chance against my team!"))
     } else {
         msgbox(format("I mean, I'm already running circles around you in battles.\p"
-            "I guess I'll just have to show you who's boss with this, too!"))
+            "Face it. You're just not up to the task!"))
     }
     msgbox(format("Don't even bother trying to fill your Dex. I'll get it done first!"))
     applymovement(TIM_ID, Movement_FaceDown)
@@ -597,7 +597,7 @@ script GravelTown_TimsLab_PokedexScene {
         "Every Pokémon is slightly different, even those of the same species.\p"
         "The more data we get from around the globe, the better.\p"
         "So, both of you should try your hardest to find as many as possible.\p"
-        "Mura: Whatever, old man! You can't tell me what to do!"))
+        "Mura: Whatever, old man. I'm out of here!"))
     applymovement(MURA_ID, Movement_FaceRight)
     applymovement(PLAYER_ID, Movement_FaceLeft)
     msgbox(format("Don't wait up, {PLAYER}!\p"

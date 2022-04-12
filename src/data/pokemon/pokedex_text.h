@@ -377,7 +377,7 @@ const u8 gTimNotesZubat[] = _(
 );
 
 const u8 gTimNotesGolbat[] = _(
-    "Often nicknamed the Vampire Bat, this\n"
+    "Often nicknamed the “Vampire Bat”, this\n"
     "Pokémon has hollow fangs used for sucking\n"
     "blood from its prey. It drinks so much,\n"
     "sometimes it can be left immobile from\n"

@@ -3,13 +3,17 @@ mapscripts MersonCity_FanClub_MapScripts {}
 script MersonCity_FanClub_Chairman {
     lock
     faceplayer
-    checkitem(ITEM_BIKE_VOUCHER, 1)
-    if (var(VAR_RESULT)) {
-        goto(MersonCity_FanClub_Chairman_EnjoyBike)
-    }
     checkitem(ITEM_BICYCLE, 1)
     if (var(VAR_RESULT)) {
         goto(MersonCity_FanClub_Chairman_EnjoyBike)
+    }
+    checkitem(ITEM_BIKE_VOUCHER, 1)
+    if (var(VAR_RESULT)) {
+        msgbox(BikeVoucherInstructions)
+        applymovement(VAR_LAST_TALKED, Movement_FaceDown)
+        waitmovement(0)
+        release
+        end
     }
     // Give Bike Voucher
     msgbox(format("Oh, hello! Our first visitor in quite some time!\p"
@@ -28,8 +32,8 @@ script MersonCity_FanClub_Chairman {
     fadescreenspeed(FADE_TO_BLACK, 64)
     delay(64)
     textcolor(3)
-    message("Two hours later… … …")
-    delay(128)
+    message("Twenty minutes later… … …")
+    delay(256)
     closemessage
     textcolor(0)
     fadescreenspeed(FADE_FROM_BLACK, 64)
@@ -43,9 +47,16 @@ script MersonCity_FanClub_Chairman {
     playfanfare(MUS_OBTAIN_KEY_ITEM)
     waitmessage
     waitfanfare
+    call(EventScript_RestorePrevTextColor)
+    msgbox(BikeVoucherInstructions)
     applymovement(VAR_LAST_TALKED, Movement_FaceDown)
     waitmovement(0)
     release
+}
+
+text(local) BikeVoucherInstructions {
+    format("That voucher can be redeemed at the bike shop in Jaeru City.\p"
+        "I hope you enjoy riding it!")
 }
 
 script MersonCity_FanClub_Chairman_EnjoyBike {
@@ -78,7 +89,7 @@ script MersonCity_FanClub_PokeManiac_B {
 script MersonCity_FanClub_Breeder {
     lock
     faceplayer
-    msgbox(format("Those people across the table are a little offputting.\p"
+    msgbox(format("Those people across the table are a little odd.\p"
         "They come to every meeting dressed like that…\p"
         "But, we don't have a lot of members, so we put up with it."))
     applymovement(VAR_LAST_TALKED, Movement_FaceLeft)

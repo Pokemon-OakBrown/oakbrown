@@ -123,7 +123,7 @@
 #define VAR_LINK_WIN_BRAG_STATE            0x404B
 #define VAR_POKELOT_RND2                   0x404C
 #define VAR_QL_ENTRANCE                    0x404D
-#define VAR_0x404E                         0x404E
+#define VAR_NAT_DEX_UNKNOWN                0x404E
 #define VAR_LOTAD_SIZE_RECORD              0x404F
 
 // Map Scene
@@ -303,7 +303,7 @@
 #define VAR_0x40FC                 0x40FC
 #define VAR_0x40FD                 0x40FD
 #define VAR_0x40FE                 0x40FE
-#define VAR_0x40FF                 0x40FF
+#define VAR_PLAYERS_HOUSE_ENTERED  0x40FF
 
 #define VARS_END                   0x40FF
 #define VARS_COUNT                 (VARS_END - VARS_START + 1)

@@ -1,6 +1,8 @@
 const TEMPFLAG_HIDE_STORYZONE = FLAG_TEMP_A
 mapscripts SeashoreCity_PlayersHouse_2F_MapScripts {
-    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE: SeashoreCity_PlayersHouse_2F_OnWarp
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+        VAR_PLAYERS_HOUSE_ENTERED, 0: SeashoreCity_PlayersHouse_2F_FirstWarpIn
+    ]
     MAP_SCRIPT_ON_TRANSITION {
         if (!flag(FLAG_SYS_DEBUG)) {
             setflag(TEMPFLAG_HIDE_STORYZONE)
@@ -9,16 +11,10 @@ mapscripts SeashoreCity_PlayersHouse_2F_MapScripts {
 }
 
 // Face upwards
-raw`
-SeashoreCity_PlayersHouse_2F_OnWarp::
-    map_script_2 VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F, 0, SeashoreCity_PlayersHouse_2F_FirstWarpIn
-    .2byte 0
-
-SeashoreCity_PlayersHouse_2F_FirstWarpIn::
-    turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-    setvar VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F, 1
-    end
-`
+script SeashoreCity_PlayersHouse_2F_FirstWarpIn {
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    setvar(VAR_PLAYERS_HOUSE_ENTERED, 1)
+}
 
 script SeashoreCity_PlayersHouse_2F_PC {
     lockforce
@@ -32,6 +28,6 @@ script SeashoreCity_PlayersHouse_2F_PC {
 }
 
 script SeashoreCity_PlayersHouse_2F_NES {
-    msgbox(format("{PLAYER} is playing the Snes!\n...Okay!\lIt's time to go!"))
+    msgbox(format("{PLAYER} is playing the SNES!\n...Okay!\lIt's time to go!"))
     closemessage
 }
