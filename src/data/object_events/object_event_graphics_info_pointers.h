@@ -153,6 +153,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SSAnne;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Tim;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mura;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Youngster2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Cubone;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
@@ -360,4 +361,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SAILOR_2]                 = &gObjectEventGraphicsInfo_sailor_2,
     [OBJ_EVENT_GFX_WOMAN_4]                  = &gObjectEventGraphicsInfo_woman_4,
     [OBJ_EVENT_GFX_KARPMAN]                  = &gObjectEventGraphicsInfo_Karpman,
+    [OBJ_EVENT_GFX_MAROWAK]                  = &gObjectEventGraphicsInfo_Marowak,
 };

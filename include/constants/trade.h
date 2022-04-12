@@ -10,7 +10,7 @@
 #define LINK_TRADE_TIMEOUT 300
 
 // In-game Trade IDs
-#define INGAME_TRADE_MR_MIME   0
+#define INGAME_TRADE_AZURILL   0
 #define INGAME_TRADE_JYNX      1
 #define INGAME_TRADE_NIDORAN   2  // M or F depending on version
 #define INGAME_TRADE_FARFETCHD 3

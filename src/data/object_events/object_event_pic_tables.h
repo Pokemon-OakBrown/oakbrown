@@ -2427,3 +2427,15 @@ const struct SpriteFrameImage gObjectEventPicTable_Karpman[] = {
     overworld_frame(gObjectEventPic_Karpman, 2, 4, 2),
     overworld_frame(gObjectEventPic_Karpman, 2, 4, 2),
 };
+
+const struct SpriteFrameImage gObjectEventPicTable_Marowak[] = {
+    overworld_frame(gObjectEventPic_Marowak, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Marowak, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Marowak, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Marowak, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Marowak, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Marowak, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Marowak, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Marowak, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Marowak, 4, 4, 2),
+};

@@ -109,7 +109,7 @@ static const u8 sTextColorTable[] =
     [OBJ_EVENT_GFX_LITTLE_GIRL_2 / 2]           = 0x01, // OBJ_EVENT_GFX_OLD_MAN_3
     [OBJ_EVENT_GFX_OLD_WOMAN_2 / 2]             = 0x11, // OBJ_EVENT_GFX_POKEMON_BREEDER_F
     [OBJ_EVENT_GFX_SAILOR_2 / 2]                = 0x10, // OBJ_EVENT_GFX_WOMAN_4
-    [OBJ_EVENT_GFX_KARPMAN / 2]                 = 0x00, // ?????
+    [OBJ_EVENT_GFX_KARPMAN / 2]                 = 0x20, // OBJ_EVENT_GFX_MAROWAK
 };
 
 void DynamicPlaceholderTextUtil_Reset(void)

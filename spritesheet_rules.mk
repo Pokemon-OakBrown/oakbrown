@@ -552,3 +552,6 @@ $(OBJEVENTGFXDIR)/people/woman_4.4bpp: %.4bpp: %.png
 
 $(OBJEVENTGFXDIR)/people/karpman.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
+
+$(OBJEVENTGFXDIR)/pokemon/marowak.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4

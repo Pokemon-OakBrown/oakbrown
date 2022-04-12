@@ -224,6 +224,7 @@ static void DebugAction_LivingDex(u8 taskId)
                 species = SPECIES_TREECKO;
         }
     }
+    PlaySE(SE_SAVE);
 }
 
 // Deletes party mons except the first

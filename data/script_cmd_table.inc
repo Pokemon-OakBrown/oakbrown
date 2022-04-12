@@ -216,6 +216,7 @@ gScriptCmdTable:: @ 815F9B4
 	.4byte ScrCmd_bufferitemnameplural
 	.4byte ScrCmd_checkpartymon
 	.4byte ScrCmd_lock
+	.4byte ScrCmd_partymongender
 
 gScriptCmdTableEnd:: @ 815FD08
 	.4byte ScrCmd_nop

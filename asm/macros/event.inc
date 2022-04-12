@@ -1446,7 +1446,8 @@
 	.2byte \quantity
 	.endm
 
-	@ Checks to see if the player has a Pokemon in their party. Result returns to VAR_RESULT
+	@ Checks to see if the player has a Pokemon in their party. Result returns to VAR_RESULT.
+	@ Returns index 0-5. Returns PARTY_SIZE if not found.
 	.macro checkpartymon species:req
 	.byte 0xd5
 	.2byte \species
@@ -1455,6 +1456,12 @@
 	@ Ceases movement for the event obj. the Player is currently interacting with and that one alone.
 	.macro lock
 	.byte 0xd6
+	.endm
+
+	@ Returns the gender of the mon in the specified index to VAR_RESULT. MON_MALE, MON_FEMALE, or MON_GENDERLESS.
+	.macro partymongender index:req
+	.byte 0xd7
+	.byte \index
 	.endm
 
 @ Supplementary

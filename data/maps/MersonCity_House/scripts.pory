@@ -1,11 +1,156 @@
-mapscripts MersonCity_House_MapScripts {}
+const TEMPFLAG_HIDE_MAROWAK = FLAG_TEMP_A
+const TEMPFLAG_JUST_TRADED = FLAG_TEMP_B
+const TEMPFLAG_SAID_GOODBYE = FLAG_TEMP_C
+
+const MAROWAK_ID = 5
+
+mapscripts MersonCity_House_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        if(!flag(FLAG_TRADED_MERSON_MAROWAK)) {
+            setflag(TEMPFLAG_HIDE_MAROWAK)
+        }
+    }
+    MAP_SCRIPT_ON_RETURN_TO_FIELD {
+        // Make sure Marowak is visible in the overworld after the trade.
+        if (!flag(TEMPFLAG_HIDE_MAROWAK)) {
+            addobject(MAROWAK_ID)
+        }
+    }
+}
 
 script MersonCity_House_Woman {
     lock
     faceplayer
-    msgbox(format("I used to volunteer at a hostel in Kanto for orphan Pokémon.\p"
-        "When I moved here, I couldn't help but bring some of the poor souls with me!"))
+    if (flag(FLAG_TRADED_MERSON_MAROWAK)) {
+        if(flag(TEMPFLAG_JUST_TRADED)) {
+            msgbox(ThankYou)
+        } else {
+            msgbox(format("Hello, again!\nMarowark is doing fine.\p"
+                "And all the Cubone are much happier and healthier, thanks to you!"))
+        }
+    } elif (flag(FLAG_SHOWED_MERSON_MAROWAK)) {
+        // Previously declined Marowak trade
+        msgbox(format("Hello, again. It's nice of you to visit.\p"
+            "I know you said no before, but I really think there's an opportunity to improve the lives of these Cubone!\p"
+            "I don't have much to offer in return, but would you reconsider trading your Marowak?"), MSGBOX_YESNO)
+        if (!var(VAR_RESULT)) {
+            goto(DeclineTrade)
+        }
+        goto(MersonCity_House_TradeMarowak)
+    } elif (flag(FLAG_SHOWED_MERSON_CUBONE)) {
+        // Previously showed Cubone
+        msgbox(format("Hello! How is your Cubone doing?"))
+        checkpartymon(SPECIES_MAROWAK)
+        if (var(VAR_RESULT) != PARTY_SIZE) {
+            msgbox("Oh! It's all grown up now!")
+            call(MersonCity_House_ShowMarowak)
+        } else {
+            msgbox(ShowMeMarowakPlease)
+        }
+    } else {
+        // Nothing showed yet.
+        msgbox(format("I used to volunteer at a hostel in Kanto for orphan Pokémon.\p"
+            "When I moved here, I couldn't help but bring some of the poor souls with me!"))
+        checkpartymon(SPECIES_MAROWAK)
+        if (var(VAR_RESULT) != PARTY_SIZE) {
+            msgbox(format("Oh, my! It looks like you're raising a Cubone yourself!\p"
+                "And what's more, it's grown up into a Marowak!"))
+            call(MersonCity_House_GiveNugget)
+            call(MersonCity_House_ShowMarowak)
+        } else {
+            checkpartymon(SPECIES_CUBONE)
+            if (var(VAR_RESULT) != PARTY_SIZE) {
+                msgbox(format("Oh, my! It looks like you're raising a Cubone yourself!"))
+                call(MersonCity_House_GiveNugget)
+                setflag(FLAG_SHOWED_MERSON_CUBONE)
+                msgbox(ShowMeMarowakPlease)
+            } else {
+                msgbox(format("It's a pity not many know how hard Cubone have it.\p"
+                    "If you ever decide to raise one yourself, could you come show me?\p"
+                    "I think they live somewhere in Merson Cave, if you're interested…"))
+            }
+        }
+    }
     release
+}
+
+script(local) MersonCity_House_GiveNugget {
+    msgbox(format("This warms my heart. Please accept this!"))
+    checkitemspace(ITEM_NUGGET, 1)
+    if (var(VAR_RESULT)) {
+        textcolor(3)
+        getitemname(1, ITEM_NUGGET)
+        playfanfare(MUS_OBTAIN_ITEM)
+        message(Text_ObtainedTheX)
+        waitmessage
+        waitfanfare
+        additem(ITEM_NUGGET)
+        call(EventScript_RestorePrevTextColor)
+    } else {
+        msgbox(format("… Oh, you don't have room to carry it. A shame."))
+    }
+}
+
+text(local) ShowMeMarowakPlease {
+    format("I have a favor to ask, if you don't mind.\p"
+        "Treat your Cubone well, please? Make it grow big and strong!\p"
+        "It might evolve one day if you give it proper love and care.\p"
+        "Come back and show me if it does, OK?")
+}
+
+script(local) MersonCity_House_ShowMarowak {
+    setflag(FLAG_SHOWED_MERSON_MAROWAK)
+    msgbox(format("It takes a special kind of trainer to give a Cubone the love it needs to evolve.\p"
+        "From the bottom of my heart, I thank you for all you have done for your Marowak.\p"
+        "I can tell you truly care for it.\p"
+        "Which makes my next request all the more difficult to ask…\p"
+        "You see, I've been caring for these Cubone for years.\p"
+        "They've been orphans since they've hatched, all thanks to Team Rocket…\p"
+        "I often wonder how much happier they could be with a parental figure in their lives.\p"
+        "I know this must be a hard decision for you, but would you consider trading me your Marowak?\lFor their sakes?\p"
+        "I don't have much to offer, but I can at least give you another Pokémon in return…"), MSGBOX_YESNO)
+    if (!var(VAR_RESULT)) {
+        goto(DeclineTrade)
+    }
+    goto(MersonCity_House_TradeMarowak)
+}
+
+script(local) DeclineTrade {
+    msgbox(TradeDenied)
+    release
+    end
+}
+
+text(local) TradeDenied {
+    "I understand.\nForgive me for asking."
+}
+
+script(local) MersonCity_House_TradeMarowak {
+    // Make sure the trade is valid.
+    setvar(VAR_0x8008, INGAME_TRADE_AZURILL)
+    call(EventScript_GetInGameTradeSpeciesInfo)
+    call(EventScript_ChooseMonForInGameTrade)
+    if (var(VAR_0x8004) == PARTY_SIZE) {
+        goto(DeclineTrade)
+    }
+    call(EventScript_GetInGameTradeSpecies)
+    if (var(VAR_RESULT) != VAR_0x8009) {
+        goto(DeclineTrade)
+    }
+    // The trade is all good from here.
+    setflag(FLAG_TRADED_MERSON_MAROWAK)
+    clearflag(TEMPFLAG_HIDE_MAROWAK)
+    setflag(TEMPFLAG_JUST_TRADED)
+    msgbox(format("You will?\nYou truly are a kind person!\p"
+        "A friend gave me this Pokémon some time ago. I think it'll be happier with you."))
+    call(EventScript_DoInGameTrade)
+    msgbox(ThankYou)
+    release
+    end
+}
+
+text(local) ThankYou {
+    "Thank you, truly.\nFeel free to visit Marowak anytime!"
 }
 
 script MersonCity_House_Cubone_A {
@@ -28,6 +173,28 @@ script MersonCity_House_Cubone_C {
     lock
     faceplayer
     playmoncry(SPECIES_CUBONE, 0)
-    msgbox("… … … ?")
+    msgbox("Kwee!?")
+    release
+}
+
+script MersonCity_House_Marowak {
+    lock
+    faceplayer
+    if(flag(TEMPFLAG_JUST_TRADED)) {
+        if(flag(TEMPFLAG_SAID_GOODBYE)) {
+            msgbox(format("… … …\pTime to get going."))
+        } else {
+            setflag(TEMPFLAG_SAID_GOODBYE)
+            msgbox(format("The two of you stare intently, sharing a silent goodbye.\p"
+                "Without speaking a word, you both have said all that needed to be said."))
+            closemessage
+            playmoncry(SPECIES_MAROWAK, 0)
+            waitmoncry
+            delay(30)
+        }
+    } else {
+        playmoncry(SPECIES_MAROWAK, 0)
+        msgbox(format("Kwyah! Maro Maro!\pIt seems to remember you."))
+    }
     release
 }

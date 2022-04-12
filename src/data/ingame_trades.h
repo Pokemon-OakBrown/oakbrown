@@ -1,19 +1,19 @@
 static const struct InGameTrade sInGameTrades[] = {
-    [INGAME_TRADE_MR_MIME] = 
+    [INGAME_TRADE_AZURILL] = 
     {
-        .nickname = _("Mimien"),
-        .species = SPECIES_MR_MIME,
+        .nickname = _("Blue"),
+        .species = SPECIES_AZURILL,
         .ivs = {20, 15, 17, 24, 23, 22},
         .abilityNum = 0,
-        .otId = 1985,
+        .otId = 2015,
         .conditions = {5, 5, 5, 30, 5},
-        .personality = 0x00009cae,
+        .personality = 0xca534483,
         .heldItem = ITEM_NONE,
         .mailNum = 255,
-        .otName = _("Reyley"),
-        .otGender = MALE,
+        .otName = _("Freya"),
+        .otGender = FEMALE,
         .sheen = 10,
-        .requestedSpecies = SPECIES_ABRA
+        .requestedSpecies = SPECIES_MAROWAK
     }, 
     [INGAME_TRADE_JYNX] = 
     {

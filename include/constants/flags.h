@@ -574,9 +574,9 @@
 // Story flags
 #define STORY_FLAGS_START 0x230
 #define FLAG_GOT_POTION_ON_ROUTE_53                      0x230
-#define FLAG_0x231                                       0x231
-#define FLAG_0x232                                       0x232
-#define FLAG_0x233                                       0x233
+#define FLAG_SHOWED_MERSON_CUBONE                        0x231
+#define FLAG_SHOWED_MERSON_MAROWAK                       0x232
+#define FLAG_TRADED_MERSON_MAROWAK                       0x233
 #define FLAG_0x234                                       0x234
 #define FLAG_0x235                                       0x235
 #define FLAG_0x236                                       0x236

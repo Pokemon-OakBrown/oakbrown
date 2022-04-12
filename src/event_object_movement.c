@@ -533,6 +533,7 @@ const u8 gInitialMovementTypeFacingDirections[NUM_FIELD_MAP_OBJECT_TEMPLATES] = 
 #define OBJ_EVENT_PAL_TAG_SAILOR_2 0x1157
 #define OBJ_EVENT_PAL_TAG_WOMAN_4 0x1158
 #define OBJ_EVENT_PAL_TAG_KARPMAN 0x1159
+#define OBJ_EVENT_PAL_TAG_MAROWAK 0x1160
 #define OBJ_EVENT_PAL_TAG_NONE 0x11FF
 
 #include "data/field_effects/field_effect_object_template_pointers.h"
@@ -615,6 +616,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_sailor_2, OBJ_EVENT_PAL_TAG_SAILOR_2},
     {gObjectEventPalette_woman_4, OBJ_EVENT_PAL_TAG_WOMAN_4},
     {gObjectEventPalette_Karpman, OBJ_EVENT_PAL_TAG_KARPMAN},
+    {gObjectEventPalette_Marowak, OBJ_EVENT_PAL_TAG_MAROWAK},
     {},
 };
 

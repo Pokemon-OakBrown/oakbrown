@@ -2286,3 +2286,26 @@ bool8 ScrCmd_lock(struct ScriptContext *ctx)
         return TRUE;
     }
 }
+
+bool8 ScrCmd_partymongender(struct ScriptContext *ctx)
+{
+    u8 index = ScriptReadByte(ctx);
+    struct Pokemon * pokemon;
+
+    if (index >= PARTY_SIZE)
+    {
+        gSpecialVar_Result = MON_GENDERLESS;
+        return FALSE;
+    }
+
+    pokemon = &gPlayerParty[index];
+    if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+    {
+        u16 species = GetMonData(pokemon, MON_DATA_SPECIES);
+        u32 personality = GetMonData(pokemon, MON_DATA_PERSONALITY);
+        gSpecialVar_Result = GetGenderFromSpeciesAndPersonality(species, personality);
+        return FALSE;
+    }
+    gSpecialVar_Result = MON_GENDERLESS;
+    return FALSE; 
+}
