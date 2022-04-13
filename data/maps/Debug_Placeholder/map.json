@@ -3,7 +3,7 @@
   "name": "Debug_Placeholder",
   "layout": "LAYOUT_DEBUG_PLACEHOLDER",
   "music": "MUS_BERRY_PICK",
-  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
+  "region_map_section": "MAPSEC_SEASHORE_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",

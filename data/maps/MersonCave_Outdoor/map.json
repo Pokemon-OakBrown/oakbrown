@@ -3,7 +3,7 @@
   "name": "MersonCave_Outdoor",
   "layout": "LAYOUT_MERSON_CAVE_OUTDOOR",
   "music": "MUS_PEWTER",
-  "region_map_section": "MAPSEC_MT_MOON",
+  "region_map_section": "MAPSEC_MERSON_CAVE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",

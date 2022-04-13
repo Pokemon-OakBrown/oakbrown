@@ -3,7 +3,7 @@
   "name": "SouthRijonGate",
   "layout": "LAYOUT_SOUTH_RIJON_GATE",
   "music": "MUS_ROUTE3",
-  "region_map_section": "MAPSEC_THREE_ISLE_PORT",
+  "region_map_section": "MAPSEC_SOUTH_RIJON_GATE_NORTH",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",

@@ -3,7 +3,7 @@
   "name": "HaywardUndergroundPath",
   "layout": "LAYOUT_HAYWARD_UNDERGROUND_PATH",
   "music": "MUS_MT_MOON",
-  "region_map_section": "MAPSEC_UNDERGROUND_PATH",
+  "region_map_section": "MAPSEC_ROUTE_55",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
