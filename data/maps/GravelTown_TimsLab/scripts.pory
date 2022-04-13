@@ -724,3 +724,25 @@ script GravelTown_TimsLab_FatMan {
     }
     release
 }
+
+script GravelTown_TimsLab_EggComputer {
+    msgbox(format("Incubator Status: Nominal"), MSGBOX_AUTOCLOSE)
+}
+
+script GravelTown_TimsLab_Incubator {
+    msgbox(format("Several Pokémon eggs are sitting inside the machine."), MSGBOX_AUTOCLOSE)
+}
+
+script GravelTown_TimsLab_TimsPC {
+    if (!flag(FLAG_SYS_POKEDEX_GET)) {
+        msgbox(format("The computer is open to the local Pokémart's website.\p"
+            "“Thank you for your order. A receipt will be sent shortly.”"), MSGBOX_AUTOCLOSE)
+    } else {
+        msgbox(format("You see Tim's email client on the screen.\p"
+            "“Thank you for your application to the International Society of Pokémon Research.”\p"
+            "“After consideration, we have decided not to move forward with your induction at this time.”\p"
+            "“While your past contributions to the scientific field are valuable, we feel there are other applicants that can offer more for our organization.”\p"
+            "“Please feel free to reapply in five years' time.”\p"
+            "… … … You decide to stop reading."), MSGBOX_AUTOCLOSE)
+    }
+}
