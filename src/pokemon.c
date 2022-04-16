@@ -2082,15 +2082,52 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     GiveBoxMonInitialMoveset(boxMon);
 }
 
+// Credit to aarant.
+// Returns a new PID with the specified nature
+static u32 SetNatureOnPersonality(u32 pid, u8 nature, u16 species)
+{
+    s8 diff = (nature % 25) - (pid % 25); // difference between new nature and current nature, [-24,24]
+    bool8 preserveLetter = FALSE;
+    s32 tweak;
+    u32 pidTemp;
+    // See https://bulbapedia.bulbagarden.net/wiki/Personality_value#Nature
+    // Goal here is to preserve as much of the PID as possible
+    // To preserve gender & substruct order, we add/subtract multiples of 5376 that is 0 % 256, 0 % 24, 1 % 25
+    // i.e, to increase the nature by n % 25, we add n*5376 % 19200 (LCM of 24, 25, 256) to the pid
+    // Ability number is determined by parity and so adding multiples of 5376 preserves it
+    // TODO: For genderless pokemon, 576/600 can be used instead of 5376/19200
+    if (diff == 0) // No change
+    return pid;
+    else if (diff < 0)
+        diff = 25 + diff;
+    tweak = (diff * 5376) % 19200;
+    pidTemp = pid + tweak;
+    if (species == SPECIES_UNOWN) // Preserve Unown letter
+        preserveLetter = TRUE;
+    if (preserveLetter) {
+        while (pidTemp > pid) {
+            if (GET_UNOWN_LETTER(pidTemp) == GET_UNOWN_LETTER(pid))
+            break;
+            pidTemp += 19200;
+        }
+    }
+    if (pidTemp < pid) { // overflow; search backwards
+        tweak -= 19200;
+        pidTemp = pid + tweak;
+        if (preserveLetter) {
+            while (pidTemp < pid) {
+            if (GET_UNOWN_LETTER(pidTemp) == GET_UNOWN_LETTER(pid))
+                break;
+            pidTemp -= 19200;
+            }
+        }
+    }
+    return pidTemp;
+}
+
 void CreateMonWithNature(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 nature)
 {
-    u32 personality;
-
-    do
-    {
-        personality = Random32();
-    }
-    while (nature != GetNatureFromPersonality(personality));
+    u32 personality = SetNatureOnPersonality(Random32(), nature, species);
 
     CreateMon(mon, species, level, fixedIV, 1, personality, OT_ID_PLAYER_ID, 0);
 }
@@ -2099,17 +2136,17 @@ void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level,
 {
     u32 personality;
 
-    if ((u8)(unownLetter - 1) < 28)
+    // Make sure gender and letter matches desired.
+    if ((u8)(unownLetter - 1) < NUM_UNOWN_FORMS)
     {
         u16 actualLetter;
 
         do
         {
             personality = Random32();
-            actualLetter = ((((personality & 0x3000000) >> 18) | ((personality & 0x30000) >> 12) | ((personality & 0x300) >> 6) | (personality & 0x3)) % 28);
+            actualLetter = GET_UNOWN_LETTER(personality);
         }
-        while (nature != GetNatureFromPersonality(personality)
-            || gender != GetGenderFromSpeciesAndPersonality(species, personality)
+        while (gender != GetGenderFromSpeciesAndPersonality(species, personality) 
             || actualLetter != unownLetter - 1);
     }
     else
@@ -2118,11 +2155,14 @@ void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level,
         {
             personality = Random32();
         }
-        while (nature != GetNatureFromPersonality(personality)
-            || gender != GetGenderFromSpeciesAndPersonality(species, personality));
+        while (gender != GetGenderFromSpeciesAndPersonality(species, personality));
     }
 
-    CreateMon(mon, species, level, fixedIV, 1, personality, otIdType, 0);
+    // Now, set nature on the determined PID.
+    personality = SetNatureOnPersonality(personality, nature, species);
+
+    // Create mon with the specified personality.
+    CreateMon(mon, species, level, fixedIV, TRUE, personality, otIdType, 0);
 }
 
 u32 GenerateDexMonPersonality(u16 species, bool8 shiny)
@@ -2130,10 +2170,11 @@ u32 GenerateDexMonPersonality(u16 species, bool8 shiny)
     u32 personality;
     u16 actualLetter;
 
+    // We want a male mon (in case of gender differences) and the unown letter A. Might be shiny.
     do
     {
         personality = Random32();
-        actualLetter = ((((personality & 0x3000000) >> 18) | ((personality & 0x30000) >> 12) | ((personality & 0x300) >> 6) | (personality & 0x3)) % 28);
+        actualLetter = GET_UNOWN_LETTER(personality);
     }
     while ((gBaseStats[species].genderRatio < MON_FEMALE && GetGenderFromSpeciesAndPersonality(species, personality) != MON_MALE)
         || (species == SPECIES_UNOWN && actualLetter != 0) // Letter A

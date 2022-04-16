@@ -1589,6 +1589,8 @@ static void SpriteCB_UnusedDebugSprite_Step(struct Sprite *sprite)
     }
 }
 
+// This is where the custom trainer battle generator lives.
+// Run away. Run far far away. This code *sucks*.
 static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
 {
     u32 nameHash = 0;
@@ -1639,8 +1641,8 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
             for (j = 0; gTrainers[trainerNum].trainerName[j] != EOS; j++)
                 nameHash += gTrainers[trainerNum].trainerName[j];
 
-// Use NPCMON_MALE, etc for gender, since the default zero value is treated as random.
-// Since the default value, 0, is treated to be random, use NATURE_HARDY_NPCMON.
+            // Use NPCMON_MALE, etc for gender, since the default zero value is treated as random.
+            // Since the default value, 0, is treated to be random, use NATURE_HARDY_NPCMON.
 
             if (partyData[i].nature == NATURE_HARDY) // Default value, randomize
                 nature = Random() % 25;
@@ -1741,6 +1743,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
         gBattleTypeFlags |= gTrainers[trainerNum].doubleBattle;
     }
     
+    // Revert to original RNG seed
     SeedRng(rngOld);
     return gTrainers[trainerNum].partySize;
 }
