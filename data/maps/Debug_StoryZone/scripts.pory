@@ -2,7 +2,7 @@ mapscripts Debug_StoryZone_MapScripts {}
 
 script Debug_StoryZone_WarpIn {
     if (!flag(FLAG_PROLOGUE)) {
-        msgbox(format("The Story Zone is only available during the game's prologue."), MSGBOX_NPC)
+        msgbox(format("The Story Zone is only available during the game's prologue."), MSGBOX_AUTOCLOSE)
         end
     }
     warp(MAP_DEBUG_STORY_ZONE, 0xFF, 4, 13)
@@ -23,8 +23,12 @@ script Debug_StoryZone_Gravel {
 script Debug_StoryZone_GravelFlags {
     clearflag(FLAG_PROLOGUE)
     setflag(FLAG_SYS_POKEMON_GET)
+    setflag(FLAG_GOT_TIMS_PIZZA)
     setflag(FLAG_SYS_POKEDEX_GET)
     setflag(FLAG_CHOSE_BULBASAUR)
+    setflag(FLAG_HIDE_BULBASAUR_BALL)
+    setflag(FLAG_HIDE_CHARMANDER_BALL)
+    setflag(FLAG_HIDE_SQUIRTLE_BALL)
     setvar(VAR_STARTER_MON, STARTER_BULBASAUR)
     setvar(VAR_MAP_SCENE_GRAVEL_TOWN, 4)
     setflag(FLAG_GOT_POTION_ON_ROUTE_53)

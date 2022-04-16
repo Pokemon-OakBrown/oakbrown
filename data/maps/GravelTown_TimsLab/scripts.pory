@@ -699,12 +699,12 @@ script GravelTown_TimsLab_Scientist {
 script GravelTown_TimsLab_Lady {
     lock
     faceplayer
-    msgbox(format("We're trying to raise our own starter Pokémon for Rijon trainers, instead of getting them from Kanto.\p"
+    msgbox(format("We're trying to raise our own starter Pokémon for Rijon trainers, instead of getting them from Kanto and Johto.\p"
         "Professor Elm has been helping Tim incubate Pokémon eggs lately.\p"
         "I help Tim take care of the newborn Pokémon that hatch.\p"
         "But this building doesn't have the right equipment for incubating that many eggs…\p"
-        "So for now, we're stuck getting our starters from Professor Oak.\p"
-        "Maybe if you come back later, Tim will give you an egg."))
+        "So for now, we're stuck getting our starters from Professors Oak and Elm.\p"
+        "Perhaps if you come back later, Tim will give you an egg."))
     release
 }
 

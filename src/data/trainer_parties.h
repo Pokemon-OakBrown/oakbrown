@@ -44,6 +44,7 @@ static const struct TrainerMon sTrainerMons_YoungsterBenny[] = {
     {
         .lvl = 3,
         .species = SPECIES_RATTATA,
+        .gender = NPCMON_MALE,
     },
     {
         .lvl = 3,
