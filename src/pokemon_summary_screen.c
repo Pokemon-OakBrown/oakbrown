@@ -5169,7 +5169,7 @@ static bool32 sub_813B7F8(void)
 
 static bool32 sub_813B838(u8 place)
 {
-    if (place >= MAPSECS_KANTO && place < MAPSEC_NONE)
+    if (place < MAPSEC_NONE)
         return TRUE;
     return FALSE;
 }

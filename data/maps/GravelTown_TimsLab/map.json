@@ -3,7 +3,7 @@
   "name": "GravelTown_TimsLab",
   "layout": "LAYOUT_GRAVEL_TOWN_TIMS_LAB",
   "music": "MUS_OAK_LAB",
-  "region_map_section": "MAPSEC_VIRIDIAN_CITY",
+  "region_map_section": "MAPSEC_GRAVEL_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

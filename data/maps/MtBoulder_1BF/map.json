@@ -3,7 +3,7 @@
   "name": "MtBoulder_1BF",
   "layout": "LAYOUT_MT_BOULDER_1BF",
   "music": "MUS_VIRIDIAN_FOREST",
-  "region_map_section": "MAPSEC_DIGLETTS_CAVE",
+  "region_map_section": "MAPSEC_MT_BOULDER_CAVES",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",

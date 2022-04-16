@@ -999,7 +999,7 @@ static u16 CheckConditionalLocationMusic(struct WarpData * warp)
     if (VarGet(VAR_MAP_SCENE_MERSON_CITY) == 2)
         return MUS_EVIL;
     // Merson City, After Looker Quest
-    if (VarGet(VAR_MAP_SCENE_MERSON_CITY) == 3 && header->regionMapSectionId == MAPSEC_PEWTER_CITY && 
+    if (VarGet(VAR_MAP_SCENE_MERSON_CITY) == 3 && header->regionMapSectionId == MAPSEC_MERSON_CITY && 
         header->music == MUS_LAVENDER)
         return MUS_LAVENDER_HGSS;
     // Nothing meets conditions, return nothing
@@ -1223,7 +1223,7 @@ bool32 Overworld_MusicCanOverrideMapMusic(u16 music)
 {
     if (music == MUS_CYCLING || music == MUS_SURF)
     {
-        if (gMapHeader.regionMapSectionId == MAPSEC_KANTO_VICTORY_ROAD || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_23 || gMapHeader.regionMapSectionId == MAPSEC_INDIGO_PLATEAU)
+        if (gMapHeader.regionMapSectionId == MAPSEC_PLACEHOLDER)
             return FALSE;
     }
     return TRUE;
