@@ -80,7 +80,7 @@
           "map": "MAP_MERSON_CAVE_1F",
           "base_label": "gMersonCave_1F",
           "land_mons": {
-            "encounter_rate": 2,
+            "encounter_rate": 3,
             "mons": [
               {
                 "min_level": 3,
@@ -149,7 +149,7 @@
           "map": "MAP_MERSON_CAVE_1BF",
           "base_label": "gMersonCave_1BF",
           "land_mons": {
-            "encounter_rate": 2,
+            "encounter_rate": 8,
             "mons": [
               {
                 "min_level": 3,

@@ -161,7 +161,7 @@
       "id": "LAYOUT_MERSON_CAVE_2F",
       "name": "MersonCave_2F_Layout",
       "width": 36,
-      "height": 15,
+      "height": 16,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
