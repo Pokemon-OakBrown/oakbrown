@@ -1501,3 +1501,7 @@ gTilesetPalOverride_Cave10_Day::
 	.align 2
 gTilesetPalOverride_Cave10_Night::
 	.incbin "data/tilesets/secondary/cave/palettes/10_over_night.gbapal"
+
+	.align 2
+gTilesetPalOverride_ViridianCity12::
+	.incbin "data/tilesets/secondary/viridian_city/palettes/12_over.gbapal"

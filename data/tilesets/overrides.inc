@@ -76,3 +76,17 @@ gTilesetPalOverrides_Cave::
 	.byte 0
 	.byte 0
 	.4byte NULL
+
+	.align 2
+gTilesetPalOverrides_ViridianCity::
+	.byte 12
+	.byte HOUR_NIGHT
+	.byte HOUR_SUNRISE
+	.byte 0
+	.4byte gTilesetPalOverride_ViridianCity12
+
+	.byte 0xFF
+	.byte 0
+	.byte 0
+	.byte 0
+	.4byte NULL
