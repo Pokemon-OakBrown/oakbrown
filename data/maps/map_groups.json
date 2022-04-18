@@ -24,7 +24,8 @@
     "Route54",
     "SouthRijonGate",
     "Route55",
-    "HaywardUndergroundPath"
+    "HaywardUndergroundPath",
+    "Route52"
   ],
   "gMapGroup_Dungeons": [
     "MersonCave_1F",
@@ -50,7 +51,9 @@
     "Route55_Building_2F",
     "Route55_Building_3F",
     "Route55_Building_4F",
-    "Route55_Gatehouse"
+    "Route55_Gatehouse",
+    "Route52_Gatehouse",
+    "Route52_House"
   ],
   "gMapGroup_PokeCenterMart": [
     "GravelTown_PokeMart",

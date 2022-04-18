@@ -1,9 +1,9 @@
 {
-  "id": "MAP_ROUTE55_GATEHOUSE",
-  "name": "Route55_Gatehouse",
+  "id": "MAP_ROUTE52_GATEHOUSE",
+  "name": "Route52_Gatehouse",
   "layout": "LAYOUT_ROUTE55_GATEHOUSE",
-  "music": "MUS_ROUTE3",
-  "region_map_section": "MAPSEC_ROUTE_55",
+  "music": "MUS_ROUTE1",
+  "region_map_section": "MAPSEC_ROUTE_52",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -19,17 +19,17 @@
   ],
   "warp_events": [
     {
-      "x": 4,
-      "y": 8,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE55",
-      "dest_warp_id": 3
-    },
-    {
       "x": 3,
       "y": 4,
       "elevation": 0,
       "dest_map": "MAP_HAYWARD_UNDERGROUND_PATH",
+      "dest_warp_id": 1
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE52",
       "dest_warp_id": 0
     }
   ],

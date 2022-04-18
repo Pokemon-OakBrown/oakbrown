@@ -420,6 +420,30 @@
       "secondary_tileset": "gTileset_UndergroundPath",
       "border_filepath": "data/layouts/HaywardUndergroundPath/border.bin",
       "blockdata_filepath": "data/layouts/HaywardUndergroundPath/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE52",
+      "name": "Route52_Layout",
+      "width": 70,
+      "height": 85,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Route52/border.bin",
+      "blockdata_filepath": "data/layouts/Route52/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE52_HOUSE",
+      "name": "Route52_House_Layout",
+      "width": 10,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding2",
+      "border_filepath": "data/layouts/Route52_House/border.bin",
+      "blockdata_filepath": "data/layouts/Route52_House/map.bin"
     }
   ]
 }

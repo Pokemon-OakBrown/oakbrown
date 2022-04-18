@@ -653,3 +653,9 @@ Text_TestMsg:: @ 81ACD45
 	.include "data/maps/Route55_Gatehouse/scripts.inc"
 
 	.include "data/maps/HaywardUndergroundPath/scripts.inc"
+
+	.include "data/maps/Route52_Gatehouse/scripts.inc"
+
+	.include "data/maps/Route52/scripts.inc"
+
+	.include "data/maps/Route52_House/scripts.inc"
